@@ -1,0 +1,21 @@
+{
+  "type": "Feature",
+  "properties": {
+    "Name": null,
+    "description": null,
+    "timestamp": null,
+    "begin": null,
+    "end": null,
+    "altitudeMode": null,
+    "tessellate": -1,
+    "extrude": 0,
+    "visibility": -1,
+    "drawOrder": null,
+    "icon": null,
+    "objectid": 1,
+    "beat": "99",
+    "first_prec": null,
+    "sector": "99",
+    "st_area_sh": 208773075.819,
+    "st_length_": 280794.869698
+  },
