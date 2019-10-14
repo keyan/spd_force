@@ -6,12 +6,8 @@ These data were merged with SPD [beat](https://en.wikipedia.org/wiki/Beat_(polic
 
 ## Demo
 
-TODO
-
-## Screenshots
-
-![](imgs/spd.png)
-![](imgs/histogram.png)
+[![](imgs/spd.png)](https://keyanp.com/spd_force/force.html)
+[![](imgs/histogram.png)](https://keyanp.com/spd_force/histogram.html)
 
 ## Code layout
 
