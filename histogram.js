@@ -25,7 +25,7 @@ d3.csv("https://gist.githubusercontent.com/keyan/7988206fb58d603f7b8bdeadf98fc4f
             "translate(" + (width/2) + " ," +
                            (height + margin.top + 25) + ")")
       .style("text-anchor", "middle")
-      .text("Incidents per officer");
+      .text("Incidents involved in");
 
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
@@ -76,7 +76,7 @@ d3.csv("https://gist.githubusercontent.com/keyan/7988206fb58d603f7b8bdeadf98fc4f
       .duration(100)
       .style("opacity", 1)
     tooltip
-      .html("Officers: " + d.length)
+      .html("Officers: " + d.length + "<br>" + "Incidents: " + d.x0)
       .style("left", (d3.mouse(this)[0]+20) + "px")
       .style("top", (d3.mouse(this)[1]) + "px")
   }

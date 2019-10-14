@@ -79,10 +79,16 @@ def group_by_officer(data):
 
     top10 = (sum([v for (_, v) in count_by_officer.most_common(10)]) / sum(count_by_officer.values())) * 100
     print(f'Top 10 responsible for: {"{0:.3f}".format(top10)}%')
-    top100 = (sum([v for (_, v) in count_by_officer.most_common(100)]) / sum(count_by_officer.values())) * 100
-    print(f'Top 100 responsible for: {"{0:.3f}".format(top100)}%')
+    top100 = (sum([v for (_, v) in count_by_officer.most_common(200)]) / sum(count_by_officer.values())) * 100
+    print(f'Top 200 responsible for: {"{0:.3f}".format(top100)}%')
     print('Worst offenders (Officer ID, Incidents):')
     pprint(count_by_officer.most_common(10))
+
+    less_than_five = sum([v for v in count_by_officer.values() if v <= 6])
+    print(len([v for v in count_by_officer.values() if v <= 6]))
+    print(less_than_five)
+    thf = less_than_five / sum(count_by_officer.values())
+    print(f'Percent of all incidents from less than five officers: {thf}')
 
     with open('data/per_officer.csv', 'w') as f:
         f.write('Incidents\n')
