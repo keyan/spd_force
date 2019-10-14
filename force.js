@@ -108,5 +108,6 @@ legend.onAdd = function (map) {
 legend.addTo(map);
 
 
+// TODO(keyan) - Disable sidebar for now, the plan is to embed this in an iframe instead.
 // Control menu setup.
-L.control.slideMenu('<p>test</p>', {}).addTo(map);
+// L.control.slideMenu('<p>test</p>', {}).addTo(map);

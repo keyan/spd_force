@@ -65,7 +65,7 @@ def add_descriptions_to_geojson(counts_by_beat):
     with open('data/annotated_beats.json', 'w') as f:
         json.dump(geojson, f)
 
-    with open('data.js', 'w') as f:
+    with open('data/force_data.js', 'w') as f:
         f.write('var data = ')
         f.write(json.dumps(geojson))
 

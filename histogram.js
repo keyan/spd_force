@@ -57,6 +57,42 @@ d3.csv("https://gist.githubusercontent.com/keyan/7988206fb58d603f7b8bdeadf98fc4f
   svg.append("g")
       .call(d3.axisLeft(y));
 
+  // Its opacity is set to 0: we don't see it by default.
+  var tooltip = d3.select("#incidents_per_officer")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "black")
+    .style("color", "white")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+    .style("position", "absolute")
+
+  // A function that change this tooltip when the user hover a point.
+  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+  var showTooltip = function(d) {
+    tooltip
+      .transition()
+      .duration(100)
+      .style("opacity", 1)
+    tooltip
+      .html("Officers: " + d.length)
+      .style("left", (d3.mouse(this)[0]+20) + "px")
+      .style("top", (d3.mouse(this)[1]) + "px")
+  }
+  var moveTooltip = function(d) {
+    tooltip
+    .style("left", (d3.event.pageX + 20) + "px")
+    .style("top", (d3.event.pageY) + "px")
+  }
+  // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+  var hideTooltip = function(d) {
+    tooltip
+      .transition()
+      .duration(100)
+      .style("opacity", 0)
+  }
+
   // append the bar rectangles to the svg element
   svg.selectAll("rect")
       .data(bins)
@@ -67,5 +103,8 @@ d3.csv("https://gist.githubusercontent.com/keyan/7988206fb58d603f7b8bdeadf98fc4f
         .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
         .attr("height", function(d) { return height - y(d.length); })
         .style("fill", "#69b3a2")
-
+        // Show tooltip on hover
+        .on("mouseover", showTooltip )
+        .on("mousemove", moveTooltip )
+        .on("mouseleave", hideTooltip )
 });
